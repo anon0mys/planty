@@ -1,7 +1,14 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'csv'
+
+zones_csv = Rails.root.join('lib', 'seeds', 'phm_us_zipcode.csv')
+
+# CSV.foreach(zones_csv, headers: true) { |row| HardinessZone.create!(row) }
+File.open(zones_csv) do |file|
+  headers = file.first
+  file.lazy.each_slice(500) do |lines|
+    csv_rows = CSV.parse(lines.join, headers: headers)
+    HardinessZone.insert_all!(csv_rows.map(&:to_h))
+  end
+end
+
+puts "Created #{HardinessZone.count} zones"
