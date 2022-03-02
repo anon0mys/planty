@@ -321,10 +321,13 @@
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#registeration" class="toc-h2 toc-link" data-title="Registeration">Registeration</a>
+                    <a href="#registration" class="toc-h2 toc-link" data-title="Registration">Registration</a>
                   </li>
                   <li>
                     <a href="#login" class="toc-h2 toc-link" data-title="Login">Login</a>
+                  </li>
+                  <li>
+                    <a href="#logout" class="toc-h2 toc-link" data-title="Logout">Logout</a>
                   </li>
               </ul>
           </li>
@@ -377,7 +380,7 @@
     </span><span class="nl">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h1 id='authentication'>Authentication</h1><h2 id='registeration'>Registeration</h2><h3 id='http-request'>HTTP Request</h3>
+</span></code></pre></div><h1 id='authentication'>Authentication</h1><h2 id='registration'>Registration</h2><h3 id='http-request'>HTTP Request</h3>
 <p><code>POST  https://planty-api.herokuapp.com/api/v1/users</code></p>
 <h3 id='request-body'>Request Body</h3>
 <blockquote>
@@ -463,9 +466,20 @@
   </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@planty.com"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aboin130h13oginasgrtfyg35uhijok1jlrbhva"</span><span class="w">
 </span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='logout'>Logout</h2><h3 id='http-request-3'>HTTP Request</h3>
+<p><code>DELETE  https://planty-api.herokuapp.com/api/v1/users/logout</code></p>
+<h3 id='authorization-header'>Authorization Header</h3>
+<p><code>{&quot;Authorization&quot;: &quot;Token mytokenhere&quot;}</code></p>
+
+<blockquote>
+<p>Example Response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Succesfully logged out"</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre></div><h1 id='hardiness-zones'>Hardiness Zones</h1><h2 id='get-a-zone'>Get a zone</h2>
 <p>This endpoint returns a hardiness zone based on a search param.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET  https://planty-api.herokuapp.com/api/v1/zones</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <blockquote>
@@ -492,7 +506,7 @@
 </tbody></table>
 <h1 id='seeds'>Seeds</h1><h2 id='search-seeds'>Search Seeds</h2>
 <p>This endpoint returns a list of seeds based on a search param.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET  https://planty-api.herokuapp.com/api/v1/seeds</code></p>
 <h3 id='query-parameters-2'>Query Parameters</h3>
 <blockquote>
@@ -529,9 +543,9 @@
 </tbody></table>
 <h1 id='seed-catalog'>Seed Catalog</h1><h2 id='add-seed-to-a-catalog'>Add seed to a catalog</h2>
 <p>This endpoint adds a seed to the current user&#39;s collection of seeds.</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>POST  https://planty-api.herokuapp.com/api/v1/catalog</code></p>
-<h3 id='authorization-header'>Authorization Header</h3>
+<h3 id='authorization-header-2'>Authorization Header</h3>
 <p><code>{&quot;Authorization&quot;: &quot;Token mytokenhere&quot;}</code></p>
 <h3 id='request-body-3'>Request Body</h3>
 <blockquote>
@@ -567,9 +581,9 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='get-catalog'>Get catalog</h2>
 <p>This endpoint returns the seeds in the current user&#39;s collection.</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-7'>HTTP Request</h3>
 <p><code>GET  https://planty-api.herokuapp.com/api/v1/catalog</code></p>
-<h3 id='authorization-header-2'>Authorization Header</h3>
+<h3 id='authorization-header-3'>Authorization Header</h3>
 <p><code>{&quot;Authorization&quot;: &quot;Token mytokenhere&quot;}</code></p>
 
 <blockquote>
