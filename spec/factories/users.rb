@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :admin_user do
+  factory :user do
     email { Faker::Internet.email }
     after(:build) do |u|
       if !u.password
