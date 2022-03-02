@@ -11,6 +11,8 @@ gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -18,6 +20,13 @@ gem 'sass-rails', '>= 6'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+
+# Use Active Admin for admin site
+gem 'activeadmin'
+
+# Use Devise and JWT for authentication
+gem 'devise'
+gem 'jwt'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
