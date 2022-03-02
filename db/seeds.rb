@@ -14,7 +14,7 @@ if !HardinessZone.exists?
   puts "Created #{HardinessZone.count} zones"
 end
 
-if !AdminUser.find_by(email: 'admin@example.com')
-  AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+if !AdminUser.find_by(email: 'admin@example.com') && Rails.env.development?
+  AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
   puts "Created Demo Admin User"
 end
