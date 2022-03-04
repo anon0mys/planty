@@ -16,9 +16,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :hardiness_zones, only: [] do
-        get :search, on: :collection
-      end
+      resources :seeds, only: [:index]
     end
   end
 end
