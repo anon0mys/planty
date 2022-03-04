@@ -24,6 +24,14 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Admin for admin site
 gem 'activeadmin'
 
+# Web requesets and parsing
+gem 'faraday'
+gem 'watir'
+gem 'nokogiri'
+
+# Use redis for caching
+gem 'redis'
+
 # Use Devise and JWT for authentication
 gem 'devise'
 gem 'jwt'

@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_one :user_zone
+  has_one :hardiness_zone, through: :user_zone
+
   def generate_jwt
     JWT.encode(
       {id: id, exp: 30.days.from_now.to_i},

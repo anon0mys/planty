@@ -5,6 +5,7 @@ FactoryBot.define do
       if !u.password
         u.password_confirmation = u.password = Faker::Internet.password
       end
+      create(:user_zone, user: u)
     end
   end
 end

@@ -23,6 +23,17 @@ describe 'POST /api/v1/login' do
       jwt_payload = JWT.decode(data['token'], Rails.application.secrets.secret_key_base).first
       expect(jwt_payload['id']).to eq user.id
     end
+
+    it 'should return a User' do
+      data = JSON.parse(response.body)
+
+      expect(data['id'])
+      expect(data['email'])
+      expect(data['zipcode'])
+      expect(data['zone'])
+      expect(data['last_frost'])
+      expect(data['last_frost_short'])
+    end
   end
 
   context 'with invalid credentials' do
