@@ -10,7 +10,7 @@ class ApiController < ApplicationController
   def authenticate_user!
     token = request.headers['HTTP_AUTHORIZATION']&.split(' ')&.last
     begin
-      jwt_payload = JWT.decode(token, Rails.application.secrets.secret_key_base).first
+      jwt_payload = JWT.decode(token, Rails.application.credentials.secret_key_base).first
       @current_user_id = jwt_payload['id']
     rescue JWT::ExpiredSignature, JWT::VerificationError, JWT::DecodeError
       render json: {errors: 'Please log in.'}, status: :unauthorized
