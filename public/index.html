@@ -343,10 +343,16 @@
             <a href="#seed-catalog" class="toc-h1 toc-link" data-title="Seed Catalog">Seed Catalog</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#add-seed-to-a-catalog" class="toc-h2 toc-link" data-title="Add seed to a catalog">Add seed to a catalog</a>
+                    <a href="#add-seed-to-catalog" class="toc-h2 toc-link" data-title="Add seed to catalog">Add seed to catalog</a>
                   </li>
                   <li>
-                    <a href="#get-catalog" class="toc-h2 toc-link" data-title="Get catalog">Get catalog</a>
+                    <a href="#get-seed-catalogs" class="toc-h2 toc-link" data-title="Get seed catalogs">Get seed catalogs</a>
+                  </li>
+                  <li>
+                    <a href="#update-catalog-item" class="toc-h2 toc-link" data-title="Update catalog item">Update catalog item</a>
+                  </li>
+                  <li>
+                    <a href="#remove-catalog-item" class="toc-h2 toc-link" data-title="Remove catalog item">Remove catalog item</a>
                   </li>
               </ul>
           </li>
@@ -475,7 +481,7 @@
 </span></code></pre></div><h2 id='logout'>Logout</h2><h3 id='http-request-3'>HTTP Request</h3>
 <p><code>DELETE  https://planty-api.herokuapp.com/api/v1/users/logout</code></p>
 <h3 id='authorization-header'>Authorization Header</h3>
-<p><code>{&quot;Authorization&quot;: &quot;Token mytokenhere&quot;}</code></p>
+<p><code>{&quot;Authorization&quot;: &quot;Bearer mytokenhere&quot;}</code></p>
 
 <blockquote>
 <p>Example Response:</p>
@@ -541,19 +547,19 @@
 <td>Fuzzy search by common name of a seed.</td>
 </tr>
 </tbody></table>
-<h1 id='seed-catalog'>Seed Catalog</h1><h2 id='add-seed-to-a-catalog'>Add seed to a catalog</h2>
+<h1 id='seed-catalog'>Seed Catalog</h1><h2 id='add-seed-to-catalog'>Add seed to catalog</h2>
 <p>This endpoint adds a seed to the current user&#39;s collection of seeds.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
-<p><code>POST  https://planty-api.herokuapp.com/api/v1/catalog</code></p>
+<p><code>POST  https://planty-api.herokuapp.com/api/v1/seed_catalogs</code></p>
 <h3 id='authorization-header-2'>Authorization Header</h3>
-<p><code>{&quot;Authorization&quot;: &quot;Token mytokenhere&quot;}</code></p>
+<p><code>{&quot;Authorization&quot;: &quot;Bearer mytokenhere&quot;}</code></p>
 <h3 id='request-body-3'>Request Body</h3>
 <blockquote>
 <p>Example Request Body:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"seed"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="nl">"seed_catalog"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"seed_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
@@ -565,7 +571,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
+<td>seed_id</td>
 <td>number</td>
 <td>The id of seed to be added to the catalog</td>
 </tr>
@@ -575,27 +581,70 @@
 <p>Example Response:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"seed_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
   </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beans (Lima)"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"tbd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tbd"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"planting_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1 to 2 weeks before"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"planted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h2 id='get-catalog'>Get catalog</h2>
+</span></code></pre></div><h2 id='get-seed-catalogs'>Get seed catalogs</h2>
 <p>This endpoint returns the seeds in the current user&#39;s collection.</p>
 <h3 id='http-request-6'>HTTP Request</h3>
-<p><code>GET  https://planty-api.herokuapp.com/api/v1/catalog</code></p>
+<p><code>GET  https://planty-api.herokuapp.com/api/v1/seed_catalogs</code></p>
 <h3 id='authorization-header-3'>Authorization Header</h3>
-<p><code>{&quot;Authorization&quot;: &quot;Token mytokenhere&quot;}</code></p>
+<p><code>{&quot;Authorization&quot;: &quot;Bearer mytokenhere&quot;}</code></p>
 
 <blockquote>
 <p>Example Response:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"seed_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
     </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beans (Lima)"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"tbd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tbd"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"planting_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1 to 2 weeks before"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"planted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
+</span></code></pre></div><h2 id='update-catalog-item'>Update catalog item</h2>
+<p>This endpoint updates a seed in the current user&#39;s collection.</p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>PATCH  https://planty-api.herokuapp.com/api/v1/seed_catalogs/:id</code></p>
+<h3 id='authorization-header-4'>Authorization Header</h3>
+<p><code>{&quot;Authorization&quot;: &quot;Bearer mytokenhere&quot;}</code></p>
+<h3 id='request-body-4'>Request Body</h3>
+<blockquote>
+<p>Example Request Body:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"seed_catalog"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"planted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Example Response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"seed_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beans (Lima)"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"planting_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1 to 2 weeks before"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"planted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='remove-catalog-item'>Remove catalog item</h2>
+<p>This endpoint removes a seed from the current user&#39;s collection.</p>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>DELETE  https://planty-api.herokuapp.com/api/v1/seed_catalogs/:id</code></p>
+<h3 id='authorization-header-5'>Authorization Header</h3>
+<p><code>{&quot;Authorization&quot;: &quot;Bearer mytokenhere&quot;}</code></p>
+
+<blockquote>
+<p>Example Response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cucumber has been removed from your catalog"</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre></div><h1 id='errors'>Errors</h1>
 <p>The Planty API will return a errors object for any error.
 It uses the following error codes:</p>

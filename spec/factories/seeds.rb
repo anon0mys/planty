@@ -24,5 +24,6 @@ FactoryBot.define do
     foliage { "Green foliage." }
     name { "San Marzano Tomato" }
     category { "open_pollinated_tomatoes" }
+    planting_date { "1 to 2 weeks before" }
   end
 end

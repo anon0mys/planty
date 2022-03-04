@@ -24,6 +24,7 @@ describe 'POST /api/v1/seed_catalogs' do
         seed_catalog = JSON.parse(response.body)
         expect(seed_catalog['id']).to eq 1
         expect(seed_catalog['name']).to eq seed.name
+        expect(seed_catalog['planting_date']).to eq seed.planting_date
       end
 
       it 'responds with a 201' do

@@ -38,6 +38,7 @@ describe 'GET /api/v1/seeds' do
       expect(seed['foliage']).to eq("Green foliage.")
       expect(seed['name']).to eq("San Marzano Tomato")
       expect(seed['category']).to eq("open_pollinated_tomatoes")
+      expect(seed['planting_date']).to eq("1 to 2 weeks before")
     end
   end
 
