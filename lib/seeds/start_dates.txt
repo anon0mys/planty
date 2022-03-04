@@ -1,0 +1,210 @@
+category,start_date
+Alfalfa,1 to 2 weeks before
+Asparagus,1 week after
+Artichoke,on frost-free date
+Arugula,1 to 2 weeks before
+Basil,1 week after
+Beet,2 weeks before
+Bean,1 to 2 weeks after
+Blackberries,2 to 3 weeks before
+Blueberries,on frost-free date
+Boysenberry,4 weeks before
+Broccoli,2 weeks before
+Brussels Sprouts,2 to 3 weeks before
+Cabbage,4 weeks before
+Carrot,3 weeks before
+Cauliflower,2 weeks before
+Celery,1 week after
+Celeriac,1 week after
+Collard,4 weeks before
+Currant,3 weeks before
+Endive,3 weeks before
+Corn,0 to 2 weeks after
+Cucumber,1 to 2 weeks after
+Daylily,3 weeks before
+Eggplant,2 to 3 weeks after
+Elderberry,1 week after
+Garlic,6 months before
+Grapes,2 to 3 weeks before
+Goji,1 week after
+Gooseberry,2 to 3 weeks before
+Gourd,2 to 3 weeks before
+Herbs,2 to 3 weeks after
+Hops,1 week after
+Honeysuckle,1 week after
+Honeyberries,1 week after
+Huckleberry,1 to 2 weeks before
+Jasmine,4 to 6 weeks after
+Kale,4 weeks before
+Kiwi,1 week after
+Kohlrabi,4 weeks before
+Leek,2 weeks before
+Lettuce,3 to 4 weeks before
+Lily,1 to 2 weeks before
+Lingonberry,1 week after
+Marionberry,on frost-free date
+Melons,2 weeks after
+Mustard,4 weeks before
+Okra,2 to 4 weeks after
+Onion,4 weeks before
+Pak Choi,4 to 6 weeks before
+Parsley,2 to 3 weeks before
+Parsnip,2 to 3 weeks before
+Pea,6 to 8 weeks before
+Peony,6 months before
+Persimmon,1 to 2 weeks before
+Pepper,2 weeks after
+Potato,4 to 6 weeks before
+Pumpkin,2 weeks after
+Radish,4 to 6 weeks before
+Rhubarb,1 to 2 weeks before
+Rutabaga,2 weeks after
+Salad,2 weeks before
+Spinach,3 to 6 weeks before
+Squash,2 weeks after
+Turnip,2 to 3 weeks before
+Chard,2 weeks before
+Tomato,1 to 2 weeks after
+Watermelon,2 weeks after
+Ageratum,on frost-free date
+Agrostemma,on frost-free date
+Corn Cockle,on frost-free date
+Amaranthus,1 week after
+Ammi,on frost-free date
+False Queen Anne's Lace,on frost-free date
+Artemisia,on frost-free date
+Sweet Annie,on frost-free date
+Astilbe,on frost-free date
+Alyssum,6 months before
+Asclepias,on frost-free date
+Bergamot,1 to 2 weeks before
+Butterfly Weed,on frost-free date
+Aster,on frost-free date
+Bleeding Heart,1 week after
+Dicentra,1 week after
+Bluebells,3 to 4 weeks before
+Bells of Ireland,on frost-free date
+Calendula,on frost-free date
+Cardoon,on frost-free date
+Caladium,2 to 3 weeks after
+Canna,1 week after
+Cardinal,on frost-free date
+Carthamus,on frost-free date
+Safflower,on frost-free date
+Castor Bean,1 week after
+Celosia,1 week after
+Centaurea,on frost-free date
+Clematis,1 to 2 weeks before
+Bachelor's Button,on frost-free date
+Begonia,1 to 2 weeks after
+Brunnera,on frost-free date
+Chinese Lanterns,on frost-free date
+Chocolate Vine,on frost-free date
+Coleus,1 week after
+Cosmo,on frost-free date
+Craspedia,on frost-free date
+Crown Vetch,on frost-free date
+Cyclamen,6 months before
+Drumstick Flower,on frost-free date
+Daffodil,6 months before
+Daisy,on frost-free date
+Datura,2 to 3 weeks after
+Dahlia,1 to 2 weeks after
+Angel's Trumpet,2 to 3 weeks after
+Delphinium,on frost-free date
+Dianthus,1 to 2 weeks before
+Sweet William,1 to 2 weeks before
+Digitalis,on frost-free date
+Foxglove,on frost-free date
+Elephant Ear,1 week after
+Epimedium,2 to 3 weeks before
+Eucalyptus,on frost-free date
+Euphorbia,on frost-free date
+Snow-on-the-Mountain,on frost-free date
+Flower Collections & Mixes,on frost-free date
+Forget-Me-Not,on frost-free date
+Gaillardia,on frost-free date
+Gardenia,on frost-free date
+Gladiolas,2 weeks before
+Gladiolus,2 weeks before
+Geranium,2 weeks before
+Blanket Flower,on frost-free date
+Gomphrena,on frost-free date
+Globe Amaranth,on frost-free date
+Grandiflora,on frost-free date
+Helianthus maximillianii,on frost-free date
+Hellebores,2 to 3 weeks before
+Hens & Chicks,2 to 3 weeks after
+Heucherella,2 to 3 weeks before
+Coral Bells,2 to 3 weeks before
+Hibiscus,1 week after
+Hosta,1 to 2 weeks after
+Hollyhock,on frost-free date
+Hummingbird Mint,1 week after
+Hyacinth Bean,1 week after
+Japanese Painted Fern, 1 to 2 weeks before
+Impatiens,1 week after
+Larkspur,on frost-free date
+Lisianthus,on frost-free date
+Liriope,2 weeks before
+Lupine,2 weeks before
+Marigold,1 week after
+Milkweed,6 months before
+Monarda,on frost-free date
+Mums,on frost-free date
+Bee Balm,on frost-free date
+Morning Glory,3 to 4 weeks after
+Nigella,on frost-free date
+Ornamental Grass, 1 week before
+Cat Grass, 1 week after
+Passion Flower,1 to 2 weeks before
+Phlox,1 to 2 weeks before
+Petunia,on frost-free date
+Polygonum,on frost-free date
+Prince's Feather,on frost-free date
+Primrose,on frost-free date
+California Poppy,on frost-free date
+Corn Poppy,on frost-free date
+Iceland Poppy,on frost-free date
+Ptilotus,on frost-free date
+Raspberry,2 to 3 weeks before
+Rose,on frost-free date
+Rudbeckia,on frost-free date
+Black-Eyed Susan,on frost-free date
+Salpiglossis,on frost-free date
+Painted Tongue,on frost-free date
+Salvia,on frost-free date
+Sanvitalia,on frost-free date
+Scabiosa,on frost-free date
+Sedum,1 to 2 weeks after
+Pincushion Flower,on frost-free date
+Scarlet Runner Bean,1 to 2 weeks before
+Spiderwort,1 to 2 weeks before
+Snapdragon,on frost-free date
+Snow in Summer,1 to 2 weeks before
+Statice,on frost-free date
+Stock,on frost-free date
+Sunflowers,on frost-free date
+Sundrops,on frost-free date
+Strawflower,on frost-free date
+Strawberry,1 to 2 weeks before
+Sweet Pea,1 to 2 weeks before
+Thunbergia,on frost-free date
+Black-Eyed Susan Vine,on frost-free date
+Tithonia,1 week after
+Mexican Sunflower,1 week after
+Tree,3 to 4 weeks before
+Trillium,6 months before
+Trumpet Vine,on frost-free date
+Tulip,6 months before
+Verbena,on frost-free date
+Viola,1 to 2 weeks before
+Wisteria,1 to 2 weeks before
+Wintercreeper,1 to 2 weeks before
+Wildflower,on frost-free date
+Hummingbird & Butterfly,on frost-free date
+Pansy,1 to 2 weeks before
+Yarrow,on frost-free date
+Zinnia,1 week after
+Grass,2 to 3 weeks before
+Flower Seed Mixture,on frost-free date
