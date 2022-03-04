@@ -9,14 +9,8 @@ describe 'POST /api/v1/users' do
       password_confirmation: 'testpass123'
     }
   }}
-  let(:invalid_attrs) {{
-    user: {
-      email: 'test@email.com',
-      zipcode: '80017',
-      password: 'testpass123',
-      password_confirmation: 'nomatch'
-    }
-  }}
+  let(:mismatched_password) { valid_attrs[:password_confirmation] = 'nomatch' }
+  let(:invalid_zip) { valid_attrs[:zipcode] = '99999' }
   let(:zone) {{
     zipcode: "80017",
     zone: "6a",
@@ -48,8 +42,16 @@ describe 'POST /api/v1/users' do
     end
   end
 
-  context 'with invalid credentials' do
-    before { post user_registration_path, params: invalid_attrs }
+  context 'with mismatched passwords' do
+    before { post user_registration_path, params: mismatched_password }
+
+    it 'should return a 422 status' do
+      expect(response).to have_http_status(:unprocessable_entity)
+    end
+  end
+
+  context 'with invalid zipcode' do
+    before { post user_registration_path, params: invalid_zip }
 
     it 'should return a 422 status' do
       expect(response).to have_http_status(:unprocessable_entity)

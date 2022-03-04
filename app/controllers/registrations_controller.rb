@@ -27,9 +27,17 @@ class RegistrationsController < Devise::RegistrationsController
     zipcode = zone_params[:zipcode]
     zone = HardinessZone.zipcode_eq(zipcode)
     if !zone.exists?
-      zone_data = JSON.parse(Rails.cache.redis.get(zipcode))
-      zone = HardinessZone.create!(zone_data)
+      zone = create_hardiness_zone(zipcode)
     end
     user.create_user_zone!(hardiness_zone: zone)
+  end
+
+  def create_hardiness_zone(zipcode)
+    begin
+      zone_data = JSON.parse(Rails.cache.redis.get(zipcode))
+      zone = HardinessZone.create!(zone_data)
+    rescue
+      raise ActiveRecord::RecordInvalid 'Invalid zipcode, no matching zones'
+    end
   end
 end
