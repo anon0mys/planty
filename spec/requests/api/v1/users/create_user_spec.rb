@@ -4,6 +4,7 @@ describe 'POST /api/v1/users' do
   let(:valid_attrs) {{
     user: {
       email: 'test@email.com',
+      nickname: 'Some Name',
       zipcode: '80017',
       password: 'testpass123',
       password_confirmation: 'testpass123'
@@ -12,6 +13,7 @@ describe 'POST /api/v1/users' do
   let(:mismatched_password) {{
     user: {
       email: 'test@email.com',
+      nickname: 'Some Name',
       zipcode: '80017',
       password: 'testpass123',
       password_confirmation: 'nomatch'
@@ -20,6 +22,7 @@ describe 'POST /api/v1/users' do
   let(:invalid_zip) {{
     user: {
       email: 'test@email.com',
+      nickname: 'Some Name',
       zipcode: '99999',
       password: 'testpass123',
       password_confirmation: 'nomatch'

@@ -2,6 +2,7 @@ class RegistrationsController < Devise::RegistrationsController
   clear_respond_to
   respond_to :json
   skip_before_action :verify_authenticity_token
+  before_action :configure_permitted_parameters
   rescue_from ActiveRecord::RecordInvalid, with: :invalid_signup
   rescue_from Exceptions::InvalidZipcode, with: :invalid_signup
 
@@ -13,6 +14,12 @@ class RegistrationsController < Devise::RegistrationsController
     resource.create_user_zone!(hardiness_zone: zone)
 
     render json: resource
+  end
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
   end
 
   private
