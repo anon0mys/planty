@@ -9,8 +9,22 @@ describe 'POST /api/v1/users' do
       password_confirmation: 'testpass123'
     }
   }}
-  let(:mismatched_password) { valid_attrs[:password_confirmation] = 'nomatch' }
-  let(:invalid_zip) { valid_attrs[:zipcode] = '99999' }
+  let(:mismatched_password) {{
+    user: {
+      email: 'test@email.com',
+      zipcode: '80017',
+      password: 'testpass123',
+      password_confirmation: 'nomatch'
+    }
+  }}
+  let(:invalid_zip) {{
+    user: {
+      email: 'test@email.com',
+      zipcode: '99999',
+      password: 'testpass123',
+      password_confirmation: 'nomatch'
+    }
+  }}
   let(:zone) {{
     zipcode: "80017",
     zone: "6a",

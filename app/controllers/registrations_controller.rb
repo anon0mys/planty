@@ -3,12 +3,14 @@ class RegistrationsController < Devise::RegistrationsController
   respond_to :json
   skip_before_action :verify_authenticity_token
   rescue_from ActiveRecord::RecordInvalid, with: :invalid_signup
+  rescue_from Exceptions::InvalidZipcode, with: :invalid_signup
 
   def create
     build_resource(sign_up_params)
 
+    zone = find_zone(resource, zone_params)
     resource.save!
-    add_zone(resource, zone_params)
+    resource.create_user_zone!(hardiness_zone: zone)
 
     render json: resource
   end
@@ -23,13 +25,13 @@ class RegistrationsController < Devise::RegistrationsController
     params.require(:user).permit(:zipcode)
   end
 
-  def add_zone(user, zone_params)
+  def find_zone(user, zone_params)
     zipcode = zone_params[:zipcode]
     zone = HardinessZone.zipcode_eq(zipcode)
     if !zone.exists?
       zone = create_hardiness_zone(zipcode)
     end
-    user.create_user_zone!(hardiness_zone: zone)
+    zone
   end
 
   def create_hardiness_zone(zipcode)
@@ -37,7 +39,7 @@ class RegistrationsController < Devise::RegistrationsController
       zone_data = JSON.parse(Rails.cache.redis.get(zipcode))
       zone = HardinessZone.create!(zone_data)
     rescue
-      raise ActiveRecord::RecordInvalid 'Invalid zipcode, no matching zones'
+      raise Exceptions::InvalidZipcode, 'The zipcode provided is not valid'
     end
   end
 end
