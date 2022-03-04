@@ -1,17 +1,23 @@
 require 'csv'
 
-if !HardinessZone.exists?
-  zones_csv = Rails.root.join('lib', 'seeds', 'phm_us_zipcode.csv')
+# zones_file = Rails.root.join('lib', 'seeds', 'hardiness_zones.json')
 
-  # CSV.foreach(zones_csv, headers: true) { |row| HardinessZone.create!(row) }
-  File.open(zones_csv) do |file|
-    headers = file.first
-    file.lazy.each_slice(500) do |lines|
-      csv_rows = CSV.parse(lines.join, headers: headers)
-      HardinessZone.insert_all!(csv_rows.map(&:to_h))
-    end
+# File.open(zones_csv) do |file|
+#   headers = file.first
+#   file.lazy.each_slice(500) do |lines|
+#     lines.map do |zone|
+#       zone = JSON.parse(zone)
+#       Rails.cache.redis.set(zone['zipcode'], zone.to_json)
+#     end
+#   end
+# end
+
+if !Seed.exists?
+  File.foreach(Rails.root.join('lib', 'seeds', 'seed_data.json')) do |line|
+    seed_data = JSON.parse(line)
+    Seed.create!(seed_data)
   end
-  puts "Created #{HardinessZone.count} zones"
+  puts "Created #{Seed.count} seeds"
 end
 
 if !AdminUser.find_by(email: 'admin@example.com') && Rails.env.development?
