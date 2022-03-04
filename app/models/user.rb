@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_one :user_zone
   has_one :hardiness_zone, through: :user_zone
+  has_many :seed_catalogs
+  has_many :seeds, through: :seed_catalogs
 
   def generate_jwt
     JWT.encode(

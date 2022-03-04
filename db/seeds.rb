@@ -1,16 +1,16 @@
 require 'csv'
 
-# zones_file = Rails.root.join('lib', 'seeds', 'hardiness_zones.json')
+zones_file = Rails.root.join('lib', 'seeds', 'hardiness_zones.json')
 
-# File.open(zones_csv) do |file|
-#   headers = file.first
-#   file.lazy.each_slice(500) do |lines|
-#     lines.map do |zone|
-#       zone = JSON.parse(zone)
-#       Rails.cache.redis.set(zone['zipcode'], zone.to_json)
-#     end
-#   end
-# end
+File.open(zones_file) do |file|
+  headers = file.first
+  file.lazy.each_slice(500) do |lines|
+    lines.map do |zone|
+      zone = JSON.parse(zone)
+      Rails.cache.redis.set(zone['zipcode'], zone.to_json)
+    end
+  end
+end
 
 if !Seed.exists?
   File.foreach(Rails.root.join('lib', 'seeds', 'seed_data.json')) do |line|
