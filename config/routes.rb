@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :seeds, only: [:index]
-      resources :seed_catalogs, only: [:create]
+      resources :seed_catalogs, only: [:create, :index, :update, :destroy]
     end
   end
 end

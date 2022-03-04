@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_04_193840) do
+ActiveRecord::Schema.define(version: 2022_03_04_234829) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2022_03_04_193840) do
   end
 
   create_table "seed_catalogs", force: :cascade do |t|
-    t.boolean "planted"
+    t.boolean "planted", default: false
     t.bigint "user_id"
     t.bigint "seed_id"
     t.datetime "created_at", precision: 6, null: false

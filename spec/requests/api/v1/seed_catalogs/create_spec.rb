@@ -25,6 +25,7 @@ describe 'POST /api/v1/seed_catalogs' do
         expect(seed_catalog['id']).to eq 1
         expect(seed_catalog['name']).to eq seed.name
         expect(seed_catalog['planting_date']).to eq seed.planting_date
+        expect(seed_catalog['planted']).to be false
       end
 
       it 'responds with a 201' do
