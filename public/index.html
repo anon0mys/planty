@@ -332,14 +332,6 @@
               </ul>
           </li>
           <li>
-            <a href="#hardiness-zones" class="toc-h1 toc-link" data-title="Hardiness Zones">Hardiness Zones</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#get-a-zone" class="toc-h2 toc-link" data-title="Get a zone">Get a zone</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
             <a href="#seeds" class="toc-h1 toc-link" data-title="Seeds">Seeds</a>
               <ul class="toc-list-h2">
                   <li>
@@ -389,6 +381,7 @@
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@planty.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"zipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"80017"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"testpass123"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"password_confirmation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"testpass123"</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -405,6 +398,11 @@
 <td>email</td>
 <td>string</td>
 <td>The email of the user</td>
+</tr>
+<tr>
+<td>zipcode</td>
+<td>string</td>
+<td>The zipcode for the user, which determines hardiness zone</td>
 </tr>
 <tr>
 <td>password</td>
@@ -424,6 +422,10 @@
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@planty.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"zipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"80017"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5a"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"last_frost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"05/05/2022"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"last_frost_short"</span><span class="p">:</span><span class="w"> </span><span class="s2">"May 5"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aboin130h13oginasgrtfyg35uhijok1jlrbhva"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='login'>Login</h2><h3 id='http-request-2'>HTTP Request</h3>
@@ -464,6 +466,10 @@
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@planty.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"zipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"80017"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5a"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"last_frost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"05/05/2022"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"last_frost_short"</span><span class="p">:</span><span class="w"> </span><span class="s2">"May 5"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aboin130h13oginasgrtfyg35uhijok1jlrbhva"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='logout'>Logout</h2><h3 id='http-request-3'>HTTP Request</h3>
@@ -477,49 +483,48 @@
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Succesfully logged out"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h1 id='hardiness-zones'>Hardiness Zones</h1><h2 id='get-a-zone'>Get a zone</h2>
-<p>This endpoint returns a hardiness zone based on a search param.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
-<p><code>GET  https://planty-api.herokuapp.com/api/v1/zones</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<blockquote>
-<p>Example Response:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5a"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"t_range"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-20 to -15"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"zone_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5a: -20 to -15"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>zipcode</td>
-<td>string</td>
-<td>Get a zone by zipcode.</td>
-</tr>
-</tbody></table>
-<h1 id='seeds'>Seeds</h1><h2 id='search-seeds'>Search Seeds</h2>
+</span></code></pre></div><h1 id='seeds'>Seeds</h1><h2 id='search-seeds'>Search Seeds</h2>
 <p>This endpoint returns a list of seeds based on a search param.</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET  https://planty-api.herokuapp.com/api/v1/seeds</code></p>
-<h3 id='query-parameters-2'>Query Parameters</h3>
+<h3 id='query-parameters'>Query Parameters</h3>
 <blockquote>
 <p>Example Response:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Asparagus"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"tbd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tbd"</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"San Marzano Tomato"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open_pollinated_tomatoes"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"botanical_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lycopersicon lycopersicum 'San Marzano'"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"height"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4 feet. Indeterminate. "</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"spacing"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18 - 24 inches between plants, 3 - 5 feet between rows."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"depth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plant seeds 1/4 inch deep."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"spread"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2 - 3 feet."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"light_required"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Full Sun"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pollinator"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Self pollinating."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"yield"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Heavy yields."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Green"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25 Seed Pkt"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"blooms"</span><span class="p">:</span><span class="w"> </span><span class="s2">"April- May"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fruit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Elongated, red fruits, meaty and very flavorful."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"days_to_maturity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"85 Days"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3-9"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"germination"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7 - 10 Days"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"form"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vegetable, Tomato, Heirloom Tomato, Indeterminate"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"flower_form"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yellow flowers."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"soil_requirements"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Well-drained, deep fertile soil."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"growth_rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Moderate growth rate."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"seed_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Approximately 25 seeds per packet."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pruning"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fruit ripens earlier since the sun can reach it more easily."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"foliage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Green foliage."</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beans (Lima)"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"tbd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tbd"</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"San Marzano Tomato"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open_pollinated_tomatoes"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"botanical_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lycopersicon lycopersicum 'San Marzano'"</span><span class="w">
+    </span><span class="err">//</span><span class="w"> </span><span class="err">...</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
@@ -535,15 +540,10 @@
 <td>string</td>
 <td>Fuzzy search by common name of a seed.</td>
 </tr>
-<tr>
-<td>variety</td>
-<td>string</td>
-<td>Search by type of seed (ie vegetable, herb)</td>
-</tr>
 </tbody></table>
 <h1 id='seed-catalog'>Seed Catalog</h1><h2 id='add-seed-to-a-catalog'>Add seed to a catalog</h2>
 <p>This endpoint adds a seed to the current user&#39;s collection of seeds.</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-5'>HTTP Request</h3>
 <p><code>POST  https://planty-api.herokuapp.com/api/v1/catalog</code></p>
 <h3 id='authorization-header-2'>Authorization Header</h3>
 <p><code>{&quot;Authorization&quot;: &quot;Token mytokenhere&quot;}</code></p>
@@ -581,7 +581,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='get-catalog'>Get catalog</h2>
 <p>This endpoint returns the seeds in the current user&#39;s collection.</p>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>GET  https://planty-api.herokuapp.com/api/v1/catalog</code></p>
 <h3 id='authorization-header-3'>Authorization Header</h3>
 <p><code>{&quot;Authorization&quot;: &quot;Token mytokenhere&quot;}</code></p>
