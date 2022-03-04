@@ -27,8 +27,8 @@ class RegistrationsController < Devise::RegistrationsController
 
   def find_zone(user, zone_params)
     zipcode = zone_params[:zipcode]
-    zone = HardinessZone.zipcode_eq(zipcode)
-    if !zone.exists?
+    zone = HardinessZone.find_by(zipcode: zipcode)
+    if !zone
       zone = create_hardiness_zone(zipcode)
     end
     zone
