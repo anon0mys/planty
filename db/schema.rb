@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_04_023519) do
+ActiveRecord::Schema.define(version: 2022_03_04_033558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,35 @@ ActiveRecord::Schema.define(version: 2022_03_04_023519) do
     t.datetime "updated_at", precision: 6, default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.string "last_frost"
     t.string "last_frost_short"
+  end
+
+  create_table "seeds", force: :cascade do |t|
+    t.string "botanical_name"
+    t.string "height"
+    t.string "spacing"
+    t.string "depth"
+    t.string "spread"
+    t.string "light_required"
+    t.string "pollinator"
+    t.string "yield"
+    t.string "color"
+    t.string "size"
+    t.string "blooms"
+    t.string "fruit"
+    t.string "days_to_maturity"
+    t.string "zone"
+    t.string "germination"
+    t.string "form"
+    t.string "flower_form"
+    t.string "soil_requirements"
+    t.string "growth_rate"
+    t.string "seed_count"
+    t.string "pruning"
+    t.string "foliage"
+    t.string "name"
+    t.string "category"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "user_zones", force: :cascade do |t|
