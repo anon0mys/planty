@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'POST /api/v1/login' do
+describe 'POST /api/v1/users/login' do
   let(:user) { create(:user, password: 'testpass123') }
   let(:valid_credentials) {{
     user: {

@@ -13,4 +13,14 @@ class SessionsController < Devise::SessionsController
       render json: { errors: 'email or password is invalid' }, status: :unprocessable_entity
     end
   end
+
+  def destroy
+    render json: { message: 'Succesfully logged out' }
+  end
+
+  protected
+
+  def verify_signed_out_user
+    # Remove cached jwt
+  end
 end

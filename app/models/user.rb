@@ -15,4 +15,11 @@ class User < ApplicationRecord
       Rails.application.credentials.secret_key_base
     )
   end
+
+  def replace_zone!(attributes)
+    User.transaction do
+      user_zone&.destroy!
+      create_user_zone!(attributes)
+    end
+  end
 end
