@@ -25,6 +25,7 @@ class RegistrationsController < Devise::RegistrationsController
   private
 
   def invalid_signup(exception)
+    puts exception
     render json: { errors: exception.message }, status: :unprocessable_entity
   end
 
