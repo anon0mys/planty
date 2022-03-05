@@ -52,6 +52,7 @@ describe 'POST /api/v1/users' do
 
       expect(data['id'])
       expect(data['email'])
+      expect(data['nickname'])
       expect(data['zipcode'])
       expect(data['zone'])
       expect(data['last_frost'])

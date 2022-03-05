@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :email, :zipcode, :zone, :last_frost, :last_frost_short, :token
+  attributes :id, :email, :nickname, :zipcode, :zone, :last_frost, :last_frost_short, :token
 
   def zipcode
     object.hardiness_zone.zipcode
