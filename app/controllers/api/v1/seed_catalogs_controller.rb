@@ -7,7 +7,7 @@ class Api::V1::SeedCatalogsController < ApiController
   end
 
   def index
-    seed_catalogs = current_user.seed_catalogs.all
+    seed_catalogs = current_user.seed_catalogs.filter(search_params)
     render json: seed_catalogs
   end
 
@@ -31,5 +31,9 @@ class Api::V1::SeedCatalogsController < ApiController
 
   def seed_catalog_params
     params.require(:seed_catalog).permit(:seed_id, :planted)
+  end
+
+  def search_params
+    params.slice(:name)
   end
 end

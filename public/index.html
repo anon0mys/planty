@@ -315,6 +315,9 @@
                   <li>
                     <a href="#post-and-patch-requests" class="toc-h2 toc-link" data-title="POST and PATCH Requests">POST and PATCH Requests</a>
                   </li>
+                  <li>
+                    <a href="#token-authentication" class="toc-h2 toc-link" data-title="Token Authentication">Token Authentication</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -322,6 +325,9 @@
               <ul class="toc-list-h2">
                   <li>
                     <a href="#registration" class="toc-h2 toc-link" data-title="Registration">Registration</a>
+                  </li>
+                  <li>
+                    <a href="#account-update" class="toc-h2 toc-link" data-title="Account Update">Account Update</a>
                   </li>
                   <li>
                     <a href="#login" class="toc-h2 toc-link" data-title="Login">Login</a>
@@ -378,7 +384,21 @@
     </span><span class="nl">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h1 id='authentication'>Authentication</h1><h2 id='registration'>Registration</h2><h3 id='http-request'>HTTP Request</h3>
+</span></code></pre></div>
+<p>All POST/PATCH request payloads require a top level key which represents the resource that is being created or updated.</p>
+<h2 id='token-authentication'>Token Authentication</h2>
+<blockquote>
+<p>Example Header:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="nl">"Authorization"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bearer mytokenhere"</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Secure routes require an authorization header with a bearer token.
+Tokens are generated as part of signup and login, and are returned on the user payload </p>
+
+<aside class="notice">
+You must replace <code>mytokenhere</code> with your JWT from login or sign up.
+</aside>
+<h1 id='authentication'>Authentication</h1><h2 id='registration'>Registration</h2><h3 id='http-request'>HTTP Request</h3>
 <p><code>POST  https://planty-api.herokuapp.com/api/v1/users</code></p>
 <h3 id='request-body'>Request Body</h3>
 <blockquote>
@@ -441,9 +461,66 @@
   </span><span class="nl">"last_frost_short"</span><span class="p">:</span><span class="w"> </span><span class="s2">"May 5"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aboin130h13oginasgrtfyg35uhijok1jlrbhva"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h2 id='login'>Login</h2><h3 id='http-request-2'>HTTP Request</h3>
-<p><code>POST  https://planty-api.herokuapp.com/api/v1/users/login</code></p>
+</span></code></pre></div><h2 id='account-update'>Account Update</h2><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>PATCH  https://planty-api.herokuapp.com/api/v1/users</code></p>
+<h3 id='authorization-header'>Authorization Header</h3>
+<p><code>{&quot;Authorization&quot;: &quot;Bearer mytokenhere&quot;}</code></p>
 <h3 id='request-body-2'>Request Body</h3>
+<blockquote>
+<p>Example Request Body:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@planty.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"nickname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Friend"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"zipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"80017"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Example Response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@planty.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"nickname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Friend"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"zipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"80017"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5a"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"last_frost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"05/05/2022"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"last_frost_short"</span><span class="p">:</span><span class="w"> </span><span class="s2">"May 5"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aboin130h13oginasgrtfyg35uhijok1jlrbhva"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<aside class="notice">
+All of the update fields are optional but you must provide at least one
+</aside>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>The email of the user</td>
+</tr>
+<tr>
+<td>nickname</td>
+<td>string</td>
+<td>The name the user wants to go by</td>
+</tr>
+<tr>
+<td>zipcode</td>
+<td>string</td>
+<td>The zipcode for the user, which determines hardiness zone</td>
+</tr>
+</tbody></table>
+<h2 id='login'>Login</h2><h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST  https://planty-api.herokuapp.com/api/v1/users/login</code></p>
+<h3 id='request-body-3'>Request Body</h3>
 <blockquote>
 <p>Example Request Body:</p>
 </blockquote>
@@ -486,9 +563,9 @@
   </span><span class="nl">"last_frost_short"</span><span class="p">:</span><span class="w"> </span><span class="s2">"May 5"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aboin130h13oginasgrtfyg35uhijok1jlrbhva"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h2 id='logout'>Logout</h2><h3 id='http-request-3'>HTTP Request</h3>
+</span></code></pre></div><h2 id='logout'>Logout</h2><h3 id='http-request-4'>HTTP Request</h3>
 <p><code>DELETE  https://planty-api.herokuapp.com/api/v1/users/logout</code></p>
-<h3 id='authorization-header'>Authorization Header</h3>
+<h3 id='authorization-header-2'>Authorization Header</h3>
 <p><code>{&quot;Authorization&quot;: &quot;Bearer mytokenhere&quot;}</code></p>
 
 <blockquote>
@@ -499,7 +576,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h1 id='seeds'>Seeds</h1><h2 id='search-seeds'>Search Seeds</h2>
 <p>This endpoint returns a list of seeds based on a search param.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET  https://planty-api.herokuapp.com/api/v1/seeds</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <blockquote>
@@ -558,11 +635,11 @@
 </tbody></table>
 <h1 id='seed-catalog'>Seed Catalog</h1><h2 id='add-seed-to-catalog'>Add seed to catalog</h2>
 <p>This endpoint adds a seed to the current user&#39;s collection of seeds.</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>POST  https://planty-api.herokuapp.com/api/v1/seed_catalogs</code></p>
-<h3 id='authorization-header-2'>Authorization Header</h3>
+<h3 id='authorization-header-3'>Authorization Header</h3>
 <p><code>{&quot;Authorization&quot;: &quot;Bearer mytokenhere&quot;}</code></p>
-<h3 id='request-body-3'>Request Body</h3>
+<h3 id='request-body-4'>Request Body</h3>
 <blockquote>
 <p>Example Request Body:</p>
 </blockquote>
@@ -598,9 +675,9 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='get-seed-catalogs'>Get seed catalogs</h2>
 <p>This endpoint returns the seeds in the current user&#39;s collection.</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-7'>HTTP Request</h3>
 <p><code>GET  https://planty-api.herokuapp.com/api/v1/seed_catalogs</code></p>
-<h3 id='authorization-header-3'>Authorization Header</h3>
+<h3 id='authorization-header-4'>Authorization Header</h3>
 <p><code>{&quot;Authorization&quot;: &quot;Bearer mytokenhere&quot;}</code></p>
 
 <blockquote>
@@ -615,13 +692,27 @@
     </span><span class="nl">"planted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre></div><h2 id='update-catalog-item'>Update catalog item</h2>
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Fuzzy search by common name of a seed.</td>
+</tr>
+</tbody></table>
+<h2 id='update-catalog-item'>Update catalog item</h2>
 <p>This endpoint updates a seed in the current user&#39;s collection.</p>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-8'>HTTP Request</h3>
 <p><code>PATCH  https://planty-api.herokuapp.com/api/v1/seed_catalogs/:id</code></p>
-<h3 id='authorization-header-4'>Authorization Header</h3>
+<h3 id='authorization-header-5'>Authorization Header</h3>
 <p><code>{&quot;Authorization&quot;: &quot;Bearer mytokenhere&quot;}</code></p>
-<h3 id='request-body-4'>Request Body</h3>
+<h3 id='request-body-5'>Request Body</h3>
 <blockquote>
 <p>Example Request Body:</p>
 </blockquote>
@@ -643,9 +734,9 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='remove-catalog-item'>Remove catalog item</h2>
 <p>This endpoint removes a seed from the current user&#39;s collection.</p>
-<h3 id='http-request-8'>HTTP Request</h3>
+<h3 id='http-request-9'>HTTP Request</h3>
 <p><code>DELETE  https://planty-api.herokuapp.com/api/v1/seed_catalogs/:id</code></p>
-<h3 id='authorization-header-5'>Authorization Header</h3>
+<h3 id='authorization-header-6'>Authorization Header</h3>
 <p><code>{&quot;Authorization&quot;: &quot;Bearer mytokenhere&quot;}</code></p>
 
 <blockquote>
