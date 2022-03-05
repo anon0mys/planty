@@ -5,9 +5,6 @@ class SessionsController < Devise::SessionsController
 
   def create
     user = User.find_by_email(sign_in_params[:email])
-    if user
-      puts "#{user.name} is logging in and their password is valid: #{user.valid_password?(sign_in_params[:password])}"
-    end
 
     if user && user.valid_password?(sign_in_params[:password])
       @current_user = user
