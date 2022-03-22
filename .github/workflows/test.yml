@@ -24,7 +24,7 @@ jobs:
       - name: Build
         uses: actions/setup-ruby@v1
         with:
-          ruby-version: '2.7'
+          ruby-version: 2.7.2
       - name: Setup DB
         env:
           RAILS_ENV: test
