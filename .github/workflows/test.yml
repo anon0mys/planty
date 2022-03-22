@@ -22,9 +22,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Build
-        uses: actions/setup-ruby@v1
+        uses: actions/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
         with:
           bundler-cache: true
+          ruby-version: '2.7.2'
       - name: Setup DB
         env:
           RAILS_ENV: test
