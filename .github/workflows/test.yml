@@ -24,8 +24,7 @@ jobs:
       - name: Build
         uses: actions/setup-ruby@v1
         with:
-          bundler-cache: true
-          ruby-version: '2.7.2'
+          ruby-version: '2.7'
       - name: Setup DB
         env:
           RAILS_ENV: test
